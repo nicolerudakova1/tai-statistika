@@ -7,7 +7,6 @@ import pandas as pd
 def get_data(arr, file_name):
     with open(file_name, mode='r', newline='', encoding='utf-8-sig') as f:
         reader = csv.reader(f)
-        arr = []
         for row in reader:
             arr.append(row)
 
@@ -90,7 +89,7 @@ if __name__ == '__main__':
     df = pd.DataFrame(data[2:], columns=data[1])
 
 
-    # Täidame tühjad lahtrid
+    # Täidame puuduvad väärtused
     fill_by_100_rule(
         data, df,
         ["Aasta", "Taustatunnus", "Sugu"],
